@@ -49,20 +49,16 @@ console.log(removeRandom(testArr1));
 const extend = (array1, array2) => [...array1, ...array2];
 console.log(extend(testArr1, testArr2)); 
 
-obj1 = { 
+const obj1 = { 
         firstName: 'Jerry',
         lastName: 'Hsu'
 }
-obj2 = {
+const obj2 = {
         make: 'Cannondale',
         model: 'CAAD10'
 }
 
-const addKeyVal = (obj, key, val) => { 
-  const newObj = {};
-  newObj[key] = val;
-  return {...obj, ...newObj};
-}
+const addKeyVal = (obj, key, val) => ( { ...obj, ...{[key]: val} } );
 console.log(addKeyVal(obj1, 'age', 34))
 
 const removeKey = (obj, key) => { 
@@ -75,9 +71,5 @@ console.log(removeKey(obj1, 'lastName'))
 const combine = (obj1, obj2) => ( { ...obj1, ...obj2 } );
 console.log(combine(obj1, obj2));
 
-const update = (obj, key, val) => { 
-  const newObj = {};
-  newObj[key] = val;
-  return {...obj, ...newObj}  
-}
+const update = (obj, key, val) => ( { ...obj, ...{ [key]: val }} );
 console.log(update(obj2, 'groupset', '105'))
